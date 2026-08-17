@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="googlebot" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nhà BT.A03 — bảng theo dõi cho anh Quang &amp; chị Linh</title>
+<style>
+:root{
+  --surface:#fcfcfb; --plane:#f9f9f7;
+  --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --border:rgba(11,11,11,0.10);
+  --good:#0ca30c; --warning:#fab219; --serious:#ec835a; --critical:#d03b3b;
+  --accent:#2a78d6; --good-text:#006300;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--plane);
+color:var(--ink);line-height:1.55;padding:20px 16px 48px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto}
+header{margin-bottom:22px}
+h1{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.2}
+.sub{color:var(--ink2);font-size:14px;margin-top:6px}
+.stamp{display:inline-block;background:#fff;border:1px solid var(--border);border-radius:999px;
+padding:3px 11px;font-size:12.5px;color:var(--ink2);margin-top:9px}
+
+/* KPI row — stat tiles, không phải chart */
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px;margin:20px 0 26px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 16px}
+.tile .lab{font-size:12.5px;color:var(--ink2);font-weight:600;letter-spacing:.1px}
+.tile .num{font-size:31px;font-weight:800;letter-spacing:-1px;margin-top:5px;
+font-variant-numeric:tabular-nums;line-height:1.05}
+.tile .foot{font-size:12px;color:var(--muted);margin-top:5px}
+
+h2{font-size:18px;font-weight:800;margin:30px 0 12px;letter-spacing:-.3px}
+h2 .n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;
+border-radius:7px;background:var(--ink);color:#fff;font-size:13px;margin-right:9px;vertical-align:2px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0;overflow:hidden;margin-bottom:12px}
+.card.flag{border-left:4px solid var(--grid)}
+.card.crit{border-left-color:var(--critical)}
+.card.warn{border-left-color:var(--warning)}
+.card.ser{border-left-color:var(--serious)}
+.card.ok{border-left-color:var(--good)}
+.card .hd{padding:14px 17px 0}
+.card .bd{padding:8px 17px 16px;font-size:14.5px;color:var(--ink2)}
+.card h3{font-size:16px;font-weight:750;color:var(--ink);letter-spacing:-.2px}
+.money{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.4px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+border-radius:999px;padding:2px 10px;border:1px solid var(--border);background:#fff;color:var(--ink2)}
+.pill.crit{color:#8f1f1f;border-color:rgba(208,59,59,.35);background:#fdf3f3}
+.pill.warn{color:#7a5600;border-color:rgba(250,178,25,.42);background:#fffaed}
+.pill.ok{color:var(--good-text);border-color:rgba(12,163,12,.32);background:#f2faf2}
+.pill.info{color:#1d4f8f;border-color:rgba(42,120,214,.30);background:#f2f7fd}
+
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface)}
+th{text-align:left;padding:10px 16px;font-size:12px;font-weight:700;color:var(--ink2);
+text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--grid);background:#fbfbf9}
+td{padding:11px 16px;border-bottom:1px solid var(--grid);vertical-align:top;color:var(--ink2)}
+tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+td b,td strong{color:var(--ink)}
+tr.tot td{background:#f4f4f1;font-weight:800;color:var(--ink);border-top:2px solid var(--grid)}
+.note{font-size:13px;color:var(--muted);margin-top:9px;line-height:1.5}
+ul{margin:0;padding-left:19px}li{margin:5px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.two{grid-template-columns:1fr}h1{font-size:22px}.tile .num{font-size:26px}}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--grid);
+font-size:12.5px;color:var(--muted);line-height:1.6}
+</style></head><body><div class="wrap">
+
+<header>
+  <h1>Nhà BT.A03 — Embassy Garden</h1>
+  <div class="sub">Bảng theo dõi cho <b>anh Quang</b> &amp; <b>chị Linh</b> · người lập: Nguyễn Anh Dũng (quản lý dự án)</div>
+  <div class="stamp">Số liệu chốt <b>17/08/2026</b> — bảng tổng mức chi tiết bản <b>v3</b> đã lập đúng theo con số này; thành bản chính thức khi anh ký QĐ-011</div>
+</header>
+
+<div class="kpi">
+  <div class="tile"><div class="lab">Còn lại tới ngày dọn vào ở</div>
+    <div class="num" id="dem">—</div><div class="foot">hạn 15/01/2027, trước Tết</div></div>
+  <div class="tile"><div class="lab">Đã chi thực tế</div>
+    <div class="num">268,5 <span style="font-size:17px;font-weight:700">triệu</span></div>
+    <div class="foot">tạm ứng thang máy + tháo dỡ cửa</div></div>
+  <div class="tile"><div class="lab">Tổng dự tính cả nhà</div>
+    <div class="num">6,29 <span style="font-size:17px;font-weight:700">tỷ</span></div>
+    <div class="foot">tính đủ, sau các quyết định hôm nay · cả golf · ±150 tr</div></div>
+  <div class="tile"><div class="lab">Việc chờ anh quyết</div>
+    <div class="num" style="color:var(--critical)">5</div>
+    <div class="foot">hai việc ký ngay tại bàn</div></div>
+</div>
+
+<h2><span class="n">1</span>Năm việc cần anh quyết</h2>
+
+<div class="card flag crit">
+  <div class="hd">
+    <span class="pill crit">⛔ Gấp — trước khi chốt giá nhà thầu</span>
+    <h3 style="margin-top:9px">Chống thấm — chọn mức <b>LAI</b>, <span class="money">169,9 triệu</span></h3>
+  </div>
+  <div class="bd">
+    Anh yêu cầu chống thấm phải chắc. Chúng tôi dựng ba mức để so và chọn mức <b>LAI</b> — dùng vật liệu tốt
+    ở những chỗ ướt thật (khu vệ sinh, ban công, sân thượng, hố thang máy), mức vừa đủ ở chỗ ít nước.
+    <br><br>
+    Trong bảng khối lượng gửi nhà thầu, chống thấm mới tạm tính <b>28 triệu</b> — nên khi ký mức LAI,
+    tổng chi phí tăng khoảng <b>150 triệu</b> và <b>đã được tính sẵn vào con số 6,29 tỷ</b> ở mục 2.
+    Mức thấp hơn rẻ được ~90 triệu, nhưng <b>hố thang máy mà thấm thì không sửa được sau khi lắp thang</b>.
+    <br><br>
+    <b>Cần chữ ký hôm nay</b> — bản vẽ đã vẽ theo mức này, nhà thầu sắp báo giá. Ký muộn thì phải sửa cả bộ
+    và nhà thầu có cớ tính thành phát sinh.
+  </div>
+</div>
+
+<div class="card flag warn">
+  <div class="hd">
+    <span class="pill warn">⚠ Cần xác nhận bằng văn bản</span>
+    <h3 style="margin-top:9px">Phí quản lý dự án — <span class="money">40 triệu/tháng</span></h3>
+  </div>
+  <div class="bd">
+    Bảng tổng chi phí trước đây tạm tính phần này theo tỷ lệ thông lệ 2 %, ra <b>71,1 triệu</b> — con số ước,
+    không phải hợp đồng. Thực tế là <b>40 triệu/tháng × 6 tháng (8/2026 → 1/2027) = 240 triệu</b>.
+    <br><br>
+    Chênh <b>168,9 triệu</b>. Chi tiết ở mục 2 bên dưới.
+  </div>
+</div>
+
+<div class="card flag ser">
+  <div class="hd">
+    <span class="pill crit">⛔ Có hạn 22/08 — thứ Sáu này</span>
+    <h3 style="margin-top:9px">Điện nước ngầm (M&amp;E) — <span class="money">~333 triệu</span>, chưa có nhà thầu</h3>
+  </div>
+  <div class="bd">
+    Phần điện nước đi ngầm trong tường phải làm <b>trước khi trát</b>. Theo nhịp thi công, đội điện nước
+    phải vào khu đầu tiên <b>ngày 28/09</b> — mời thầu mất 3–4 tuần, nên hồ sơ phải phát hành
+    <b>trước thứ Sáu 22/08</b>; để tới cuối tháng là không còn ngày dự phòng nào.
+    <br><br>
+    <b>Xin anh đồng ý phát hành hồ sơ mời chào trước 22/08.</b>
+  </div>
+</div>
+
+<div class="card flag ser">
+  <div class="hd">
+    <span class="pill crit">⛔ Treo 23 ngày — chặn chính gói điện nước ở trên</span>
+    <h3 style="margin-top:9px">Chốt hai danh mục: <b>ổ điện chờ</b> + <b>mức smart home</b></h3>
+  </div>
+  <div class="bd">
+    Muốn khoá hồ sơ điện nước thì cần anh chốt hai việc đã treo từ 24/07:
+    <ul>
+      <li><b>Danh sách ổ điện chờ</b> — đã tổng hợp theo các ý anh nhắn (sạc xe điện, đèn sân vườn…), cần anh gật đầu bản cuối.</li>
+      <li><b>Mức smart home</b> — gói cơ bản <b>60 triệu</b> hay gói Lumi/Acis <b>180 triệu (chênh +120 triệu)</b>.
+      Chọn gói cao thì cộng thẳng vào bảng tiền mục 2.</li>
+    </ul>
+    Nếu tới <b>20/08</b> anh chưa có ý kiến khác: làm theo <b>gói cơ bản + danh mục đề xuất</b> —
+    dây chờ đi sẵn nên sau này nâng cấp vẫn được.
+  </div>
+</div>
+
+<div class="card flag ser">
+  <div class="hd">
+    <span class="pill crit">⛔ Ký tại bàn — khung QĐ-011 một trang</span>
+    <h3 style="margin-top:9px">Chốt trần ngân sách mới cho cả dự án</h3>
+  </div>
+  <div class="bd">
+    Con số <b>2 tỷ</b> chốt ngày 19/07 là trần cho <b>riêng phần xây lắp</b>; khung tính thử hồi đầu
+    tháng 7 anh cũng đã bỏ khi hạ trần. Từ đó tới nay <b>chưa có con số trần hợp lệ nào cho cả nhà</b>
+    — mọi so sánh báo giá thiếu mốc neo.
+    <br><br>
+    Hôm nay trình con số tính đủ <b>6,29 tỷ (±150 triệu)</b> ở mục 2, và đề nghị anh ký
+    <b>trần mới 6,35–6,40 tỷ gồm golf</b> vào tờ QĐ-011 — cao hơn con số tính được một chút để có
+    đệm thật. Từ nay khoản nào vượt trần là phải trình anh <b>trước khi làm</b>.
+  </div>
+</div>
+
+<h2><span class="n">2</span>Tiền — toàn bộ dự án</h2>
+
+<div class="card">
+<table>
+  <tr><th>Hạng mục</th><th class="r">Số tiền (đ)</th><th>Tình trạng</th></tr>
+  <tr><td>Xây lắp phần nhà — <b>gồm chống thấm LAI ký hôm nay</b> <span style="color:var(--muted)">(sau thuế)</span></td><td class="r">2.868.908.272</td><td><span class="pill">chờ báo giá</span></td></tr>
+  <tr><td><b>Thang máy</b> — Trường Phát</td><td class="r">645.000.000</td><td><span class="pill ok">✔ đã ký 04/08</span></td></tr>
+  <tr><td>Điện nước · điều hòa · an ninh · thiết bị vệ sinh · nội thất rời <span style="color:var(--muted)">(sau thuế, gồm đèn đếm lại theo bản vẽ)</span></td><td class="r">1.181.265.120</td><td><span class="pill warn">⚠ chưa mời thầu</span></td></tr>
+  <tr><td><b>Thiết kế</b> — The Nouveau</td><td class="r">275.620.000</td><td><span class="pill ok">✔ đã ký 04/2026</span></td></tr>
+  <tr><td><b>Quản lý dự án</b> — 40 tr × 6 tháng</td><td class="r"><b>240.000.000</b></td><td><span class="pill warn">⚠ xác nhận hôm nay</span></td></tr>
+  <tr><td>Giám sát · bảo hiểm công trình</td><td class="r">67.502.890</td><td><span class="pill">dự tính</span></td></tr>
+  <tr><td>Dự phòng 10 % <span style="color:var(--muted)">— nhà cải tạo, nhiều ẩn số</span></td><td class="r">511.329.949</td><td><span class="pill">dự tính</span></td></tr>
+  <tr><td>Phòng golf 3D <span style="color:var(--muted)">(tách riêng, anh chốt 11/07)</span></td><td class="r">500.000.000</td><td><span class="pill">tách riêng</span></td></tr>
+  <tr class="tot"><td>TỔNG SAU CÁC QUYẾT ĐỊNH HÔM NAY — cả golf</td><td class="r">6.289.626.231</td><td></td></tr>
+  <tr><td>Dải xê dịch do các khoản chưa chốt</td><td class="r">±150.000.000</td><td><span class="pill">hai chiều</span></td></tr>
+  <tr class="tot"><td>ĐỀ XUẤT TRẦN MỚI — ký QĐ-011</td><td class="r" style="color:var(--serious)">6.350.000.000 – 6.400.000.000</td><td><span class="pill crit">⛔ ký tại bàn</span></td></tr>
+</table>
+</div>
+
+<div class="card flag warn">
+  <div class="hd"><span class="pill warn">⚠ Điều cần nói thẳng</span>
+    <h3 style="margin-top:9px">Vì sao hôm nay con số to hơn các bản trước</h3></div>
+  <div class="bd">
+    Ba khoản mới được tính đúng, cộng dồn trong một lần thay vì rỉ ra từng tuần:
+    <b>chống thấm mức LAI</b> (+150 triệu so con số tạm trong bảng khối lượng) ·
+    <b>phí quản lý theo thoả thuận thật</b> (240 triệu thay cho 71 triệu ước theo tỷ lệ) ·
+    <b>đèn âm trần đếm lại trên bản vẽ</b> (tầng 1 đã 83 bộ so với 60 bộ ước cho cả nhà, +62 triệu).
+    <br><br>
+    Báo tin đủ liều một lần để anh chốt trần mới có đệm thật — <b>không phải xin thêm tiền giữa chừng</b>,
+    và mọi khoản sau này đều đã nằm trong dải ±150 triệu.
+  </div>
+</div>
+
+<div class="card flag warn">
+  <div class="hd"><span class="pill warn">💧 Tiền mặt cần chuẩn bị</span>
+    <h3 style="margin-top:9px">Từ nay tới hết tháng 9: khoảng 700–750 triệu</h3></div>
+  <div class="bd">
+    Tạm ứng nhà thầu chính <b>~185 triệu</b> khi ký · thanh toán thợ theo tuần trung bình <b>~52 triệu</b>
+    · <b>đợt 2 thang máy 322,5 triệu</b> khi thiết bị về (~cuối tháng 9). Lịch chuyển tiền chi tiết
+    sẽ gửi ngay sau khi ký nhà thầu chính.
+  </div>
+</div>
+
+<div class="card flag ok">
+  <div class="hd"><span class="pill ok">✔ Ba khoản có thể làm tiền đi xuống</span></div>
+  <div class="bd">
+    <ul>
+      <li><b>−77 đến −91 triệu</b> — dự toán đang cao hơn giá thị trường ở một số hạng mục (đã tra 6 lô, 57 bản ghi có nguồn)</li>
+      <li><b>−27 triệu</b> — nếu cách đo khối lượng xây trát có trừ ô cửa (đang kiểm)</li>
+      <li><b>−4,2 triệu</b> — nếu trừ diện tích sơn sau tủ âm tường, vách TV, bàn thờ</li>
+    </ul>
+    <div class="note">Chiều ngược lại (phụ kiện cửa, cán nền sàn gỗ, bể phốt, bao che giếng thang…)
+    đã nằm trong dải ±150 triệu ở bảng trên. Khi chấm thầu xong, con số thật có thể thấp hơn —
+    nhưng không hứa trước.</div>
+  </div>
+</div>
+
+<h2><span class="n">3</span>Tuần này — 17 đến 23/08</h2>
+
+<div class="card">
+<table>
+  <tr><th style="width:130px">Ngày</th><th>Việc</th></tr>
+  <tr><td><b>Thứ Hai 17/08</b></td><td>Đội vào <b>tháo trần cũ, đục tẩy sàn</b>. Đào 4 hố thăm dò quanh vị trí thang máy. Đo lại hai dầm bê tông của nhà cũ — hai số này quyết định cách làm hố thang máy.</td></tr>
+  <tr><td><b>Thứ Ba 18/08</b></td><td>Nhận <b>báo giá phần nề</b> (sớm nhất). Bắt đầu đào hố thang máy.</td></tr>
+  <tr><td><b>Thứ Tư 19/08</b></td><td><span class="pill crit">⛔ Mốc hợp đồng</span> Trường Phát phải đưa <b>khung thép giếng thang</b> về công trình. Bên mình lập biên bản hiện trường ngay trong ngày, dù việc có xong hay không.</td></tr>
+  <tr><td><b>Thứ Tư 19/08</b></td><td>Hạn The Nouveau trả lời danh mục 40 điểm cần sửa — <b>im lặng coi như họ đồng ý</b>.</td></tr>
+  <tr><td><b>Thứ Năm–Sáu</b></td><td>Đổ bê tông đáy hố thang máy, nếu 4 hố thăm dò cho kết quả tốt.</td></tr>
+  <tr><td><b>Trước thứ Sáu 22/08</b></td><td>Phát hành hồ sơ mời chào <b>điện nước M&amp;E</b> — sau khi anh chốt việc ④ ở mục 1.</td></tr>
+</table>
+</div>
+<div class="note">🔇 Giờ được phép gây ồn: <b>8:00–11:30</b> và <b>14:00–17:30</b>. Thứ Bảy cấm việc gây ồn, <b>Chủ nhật không thi công</b> — theo nội quy Ban quản lý Embassy Garden.</div>
+
+<h2><span class="n">4</span>Lịch các mốc tới cuối</h2>
+<div class="card">
+<table>
+  <tr><th style="width:120px">Ngày</th><th>Mốc</th><th style="width:180px">Nếu trượt thì sao</th></tr>
+  <tr><td><b>19/08</b></td><td>Hạn Trường Phát giao khung thép giếng thang <span style="color:var(--muted)">(điều kiện: hố thang máy phía mình sẵn sàng)</span></td><td>Biên bản hai bên ký đúng ngày quyết định số ngày được miễn — giữ quyền phạt 1.935.000 đ/ngày cho ngày chậm thật sự của họ</td></tr>
+  <tr><td><b>22/08</b></td><td>Lắp dựng khung thép xong</td><td>Đẩy lùi ngày hoàn thành thang máy</td></tr>
+  <tr><td><b>22/08</b></td><td>Phát hành mời chào điện nước M&amp;E</td><td>Đẩy trát → chống thấm → ốp lát</td></tr>
+  <tr><td><b>28/09</b></td><td>Thiết bị thang máy về chân công trình</td><td>Kích hoạt trả đợt 2: 322,5 triệu</td></tr>
+  <tr><td><b>02–04/11</b></td><td>Hoàn thành hợp đồng thang máy</td><td>90 ngày kể từ 04/08</td></tr>
+  <tr><td><b>15/12</b></td><td>Xong phần sơn</td><td>Không kịp dọn trước Tết</td></tr>
+  <tr class="tot"><td><b>15/01/2027</b></td><td>🎯 DỌN VÀO Ở</td><td>Trước Tết 06/02/2027</td></tr>
+</table>
+</div>
+
+<h2><span class="n">5</span>Bốn điều anh nên biết trước</h2>
+<div class="two">
+  <div class="card flag crit"><div class="hd"><h3>Mốc 19/08 — cả hai bên đều có thể chưa sẵn sàng</h3></div>
+    <div class="bd">19/08 là hạn <b>Trường Phát</b> giao khung thép; hố thang máy phía mình là điều kiện để họ vào.
+    Hố theo chuỗi kỹ thuật (bê tông bảo dưỡng 7 ngày, ngâm thử nước 72 giờ) thì <b>bàn giao thật đầu tháng 9</b>
+    — còn Trường Phát tới 15/08 cũng <b>chưa gia công khung</b>. Việc quyết định là <b>biên bản hai bên ký
+    đúng ngày 19/08</b>: nó chốt số ngày miễn trừ, giữ quyền phạt cho ngày chậm thật sự của họ.</div></div>
+
+  <div class="card flag warn"><div class="hd"><h3>Hố thang máy chạm một dầm nhà cũ</h3></div>
+    <div class="bd">Vách hố thang máy chạm vào dầm bê tông ở chân cầu thang. Có ba cách xử; đo xong
+    thứ Hai mới chốt. <b>Cách tốt nhất là không khoan vào dầm</b> — tách rời bằng khe co giãn.</div></div>
+
+  <div class="card flag warn"><div class="hd"><h3>Nhà cũ chưa chắc giống bản vẽ cũ</h3></div>
+    <div class="bd">Cao độ tầng 3 đang có hai con số chênh nhau <b>25–28 cm</b>. Thứ Hai đo thực địa.
+    Nếu lệch thật thì phương án chống nóng mái phải tính lại.</div></div>
+
+  <div class="card flag crit"><div class="hd"><h3>Hồ sơ thiết kế chưa có phần điện</h3></div>
+    <div class="bd">Bộ hồ sơ của The Nouveau <b>không có bảng tính công suất điện, không có sơ đồ nguyên lý</b>.
+    Aptomat tổng hiện tại có thể nhảy khi nhà đông người. Đã đưa vào danh mục đòi bổ sung.</div></div>
+</div>
+
+<h2><span class="n">6</span>Hai việc đang chờ nhà quyết — đã quá hạn</h2>
+<div class="card flag crit">
+  <div class="bd" style="padding-top:16px">
+    <ul>
+      <li><b>Phạm vi "để sẵn điện chờ"</b> — quá hạn <b>23 ngày</b>. Đang chặn việc khoá báo giá điện nước.</li>
+      <li><b>Phạm vi và chuẩn smart home</b> — quá hạn <b>23 ngày</b>. Cùng nhóm với việc trên.</li>
+    </ul>
+    <div class="note">Đây chính là <b>việc ④ ở mục 1</b> — phải chốt trước khi phát hành hồ sơ mời chào
+    M&amp;E (hạn 22/08). Nếu tới 20/08 chưa có ý kiến khác: làm theo gói cơ bản + danh mục đề xuất.</div>
+  </div>
+</div>
+
+<h2><span class="n">7</span>Đã chi bao nhiêu rồi</h2>
+<div class="card">
+<table>
+  <tr><th>Khoản</th><th class="r">Số tiền (đ)</th><th style="width:120px">Ngày</th></tr>
+  <tr><td>Tạm ứng thang máy đợt 1 (40 %)</td><td class="r">258.000.000</td><td>04/08/2026</td></tr>
+  <tr><td>Tháo dỡ cửa &amp; vách kính (quyết toán)</td><td class="r">10.530.000</td><td>08/08/2026</td></tr>
+  <tr class="tot"><td>Tổng đã chi</td><td class="r">268.530.000</td><td></td></tr>
+</table>
+</div>
+<div class="note">Còn phải trả cho thang máy: <b>387 triệu</b> — đợt 2 là <b>322,5 triệu</b> khi thiết bị về công trình (dự kiến 28/09), đợt cuối <b>64,5 triệu</b> khi nghiệm thu.</div>
+
+<footer>
+  <b>Bảng này là bản trình, chưa phải bản đã duyệt.</b> Bốn mục số liệu còn chờ quyết định chính thức:
+  bảng chi phí chi tiết, tổng mức đầu tư, hồ sơ mời chào xây lắp, và kế hoạch nghiệm thu.
+  <br>
+  Nguồn: hồ sơ dự án BT.A03 — bảng tổng mức đầu tư chi tiết <b>bản v3 ngày 17/08</b> (từng dòng cộng kiểm bằng máy), sổ theo dõi và sổ thư từ cập nhật 17/08.
+  <br><br>
+  Lập bởi <b>Nguyễn Anh Dũng</b> — quản lý dự án · trợ lý kỹ thuật Tano · <b>16/08/2026</b>
+</footer>
+
+</div>
+<script>
+(function(){
+  var d = Math.ceil((new Date(2027,0,15) - new Date())/86400000);
+  document.getElementById('dem').textContent = d + ' ngày';
+})();
+</script>
+<div id="dauthoigian" onclick="this.style.display='none'" style="position:fixed;left:10px;bottom:10px;z-index:99999;background:rgba(11,11,11,.82);color:#fff;font:500 11px/1.35 system-ui,sans-serif;padding:6px 10px;border-radius:14px;cursor:pointer;max-width:78vw;box-shadow:0 2px 10px rgba(0,0,0,.28)">Bản cập nhật: Thứ Hai 17/08/2026 lúc 20:20 &nbsp;·&nbsp; bấm để ẩn</div></body></html>
