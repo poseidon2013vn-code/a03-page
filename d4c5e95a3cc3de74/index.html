@@ -60,6 +60,39 @@ tr.tot td{background:#f4f4f1;font-weight:800;color:var(--ink);border-top:2px sol
 ul{margin:0;padding-left:19px}li{margin:5px 0}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:760px){.two{grid-template-columns:1fr}h1{font-size:22px}.tile .num{font-size:26px}}
+
+/* Gantt đơn giản cho chủ nhà */
+.gantt{margin:2px 0 14px}
+.grow,.gaxis,.gmk{display:grid;grid-template-columns:210px 1fr 96px;align-items:center;gap:10px;margin-bottom:6px}
+.glab{font-size:13px;color:var(--ink);font-weight:650;line-height:1.3}
+.glab i{font-weight:400;color:var(--muted);font-style:italic}
+.gnote{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+.gtrack{position:relative;height:20px;background:#f2f1ec;border-radius:5px;overflow:visible}
+.gbar{position:absolute;top:3px;height:14px;border-radius:4px;min-width:6px}
+.gbar.b1{background:#8d8a80}.gbar.b2{background:#2a78d6}.gbar.b3{background:#ec835a}
+.gbar.b4{background:#a2569b}.gbar.b5{background:#c9a227}.gbar.b6{background:#c9c6bc}
+.gbar.b7{background:#0ca30c}
+.gaxis .gtrack{background:none;height:16px}
+.gm{position:absolute;top:0;bottom:-4px;width:1px;background:var(--grid)}
+.gm span{position:absolute;top:-1px;left:3px;font-size:11px;color:var(--muted);font-weight:700;white-space:nowrap}
+.gmk{margin-top:2px}
+.gmk .gtrack{background:none;height:22px}
+.gpin{position:absolute;top:0;transform:translateX(-50%);font-size:12.5px;font-weight:800;
+color:#8f1f1f;background:#fdf3f3;border:1px solid rgba(208,59,59,.35);border-radius:999px;
+width:21px;height:21px;display:flex;align-items:center;justify-content:center}
+.gpin.goal{color:var(--good-text);background:#f2faf2;border-color:rgba(12,163,12,.32);transform:translateX(-6%)}
+.glegend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:12px;color:var(--ink2)}
+.glegend span{display:inline-flex;align-items:center;gap:6px}
+.glegend i{width:13px;height:9px;border-radius:3px;display:inline-block}
+.glegend i.b1{background:#8d8a80}.glegend i.b2{background:#2a78d6}.glegend i.b3{background:#ec835a}
+.glegend i.b4{background:#a2569b}.glegend i.b5{background:#c9a227}.glegend i.b6{background:#c9c6bc}
+.glegend i.b7{background:#0ca30c}
+@media(max-width:760px){
+  .grow,.gaxis,.gmk{grid-template-columns:126px 1fr;gap:8px;padding-right:26px}
+  .gnote{display:none}
+  .glab{font-size:12px;font-weight:600}
+  .gm span{font-size:10px}
+}
 footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--grid);
 font-size:12.5px;color:var(--muted);line-height:1.6}
 </style></head><body><div class="wrap">
@@ -72,7 +105,7 @@ font-size:12.5px;color:var(--muted);line-height:1.6}
 
 <div class="kpi">
   <div class="tile"><div class="lab">Còn lại tới ngày dọn vào ở</div>
-    <div class="num" id="dem">—</div><div class="foot">hạn 15/01/2027, trước Tết</div></div>
+    <div class="num" id="dem">—</div><div class="foot">kế hoạch bàn giao 10/01/2027 · hạn 15/01, trước Tết</div></div>
   <div class="tile"><div class="lab">Đã chi thực tế</div>
     <div class="num">268,5 <span style="font-size:17px;font-weight:700">triệu</span></div>
     <div class="foot">tạm ứng thang máy + tháo dỡ cửa</div></div>
@@ -236,19 +269,156 @@ font-size:12.5px;color:var(--muted);line-height:1.6}
 </div>
 <div class="note">🔇 Giờ được phép gây ồn: <b>8:00–11:30</b> và <b>14:00–17:30</b>. Thứ Bảy cấm việc gây ồn, <b>Chủ nhật không thi công</b> — theo nội quy Ban quản lý Embassy Garden.</div>
 
-<h2><span class="n">4</span>Lịch các mốc tới cuối</h2>
-<div class="card">
-<table>
-  <tr><th style="width:120px">Ngày</th><th>Mốc</th><th style="width:180px">Nếu trượt thì sao</th></tr>
-  <tr><td><b>19/08</b></td><td>Hạn Trường Phát giao khung thép giếng thang <span style="color:var(--muted)">(điều kiện: hố thang máy phía mình sẵn sàng)</span></td><td>Biên bản hai bên ký đúng ngày quyết định số ngày được miễn — giữ quyền phạt 1.935.000 đ/ngày cho ngày chậm thật sự của họ</td></tr>
-  <tr><td><b>22/08</b></td><td>Lắp dựng khung thép xong</td><td>Đẩy lùi ngày hoàn thành thang máy</td></tr>
-  <tr><td><b>22/08</b></td><td>Phát hành mời chào điện nước M&amp;E</td><td>Đẩy trát → chống thấm → ốp lát</td></tr>
-  <tr><td><b>28/09</b></td><td>Thiết bị thang máy về chân công trình</td><td>Kích hoạt trả đợt 2: 322,5 triệu</td></tr>
-  <tr><td><b>02–04/11</b></td><td>Hoàn thành hợp đồng thang máy</td><td>90 ngày kể từ 04/08</td></tr>
-  <tr><td><b>15/12</b></td><td>Xong phần sơn</td><td>Không kịp dọn trước Tết</td></tr>
-  <tr class="tot"><td><b>15/01/2027</b></td><td>🎯 DỌN VÀO Ở</td><td>Trước Tết 06/02/2027</td></tr>
-</table>
+<h2><span class="n">4</span>Tiến độ — bao giờ xong việc gì</h2>
+
+<div class="card flag ok">
+  <div class="hd"><span class="pill ok">✔ Kế hoạch mới, lập 16/08</span>
+    <h3 style="margin-top:9px">Nhà xong <b>10/01/2027</b> — sớm hơn hạn 5 ngày, và <u>không cắt bớt việc gì</u></h3></div>
+  <div class="bd">
+    Cách sắp xếp cũ đưa ngày xong vào <b>31/01/2027</b> — <b>trễ 16 ngày</b> so với hạn 15/01, dọn nhà
+    chỉ còn 6 ngày trước Tết. Một hướng khác về kịp giữa tháng 1 nhưng phải <b>cắt tủ bếp, tủ áo,
+    vách TV</b> — tức là dọn vào căn nhà chưa có bếp. Cách làm mới về <b>10/01/2027</b> mà <b>giữ đủ</b>.
+    <div class="note" style="margin-top:11px">Từ 10/01 tới hạn 15/01 còn <b>5 ngày dự phòng</b>, cộng
+    cả tuần chạy thử trước đó là khoảng <b>12 ngày đệm</b>. Tết Đinh Mùi: <b>06/02/2027</b>.</div>
+  </div>
 </div>
+
+<div class="card">
+  <div class="hd"><h3>Toàn bộ công việc trên một trang</h3>
+    <div class="note" style="margin-top:4px">Mỗi thanh là một nhóm việc, chạy lần lượt qua 5 khu của
+    nhà. Các thanh gối lên nhau vì trong cùng một tuần, mỗi tầng đang làm một việc khác nhau.</div>
+  </div>
+  <div class="bd" style="padding-top:14px">
+<div class="gantt">
+  <div class="gaxis"><div class="glab"></div><div class="gtrack">
+    <div class="gm" style="left:9.93%"><span>T9</span></div>
+    <div class="gm" style="left:29.8%"><span>T10</span></div>
+    <div class="gm" style="left:50.33%"><span>T11</span></div>
+    <div class="gm" style="left:70.2%"><span>T12</span></div>
+    <div class="gm" style="left:90.73%"><span>T1/27</span></div>
+  </div><div class="gnote"></div></div>
+  <div class="grow"><div class="glab">Tháo dỡ · phá tường · đục nền cũ</div><div class="gtrack"><div class="gbar b1" style="left:0.0%;width:31.79%"></div></div><div class="gnote">17/08 → 04/10</div></div>
+  <div class="grow"><div class="glab">Kết cấu mới · xây tường ngăn</div><div class="gtrack"><div class="gbar b1" style="left:13.91%;width:27.15%"></div></div><div class="gnote">07/09 → 18/10</div></div>
+  <div class="grow"><div class="glab">Điện nước đi ngầm</div><div class="gtrack"><div class="gbar b2" style="left:23.18%;width:27.15%"></div></div><div class="gnote">21/09 → 01/11</div></div>
+  <div class="grow"><div class="glab">Chống thấm khu ướt</div><div class="gtrack"><div class="gbar b2" style="left:32.45%;width:22.52%"></div></div><div class="gnote">05/10 → 08/11</div></div>
+  <div class="grow"><div class="glab">Trát tường · cán nền</div><div class="gtrack"><div class="gbar b3" style="left:37.09%;width:27.15%"></div></div><div class="gnote">12/10 → 22/11</div></div>
+  <div class="grow"><div class="glab">Ốp lát · đóng trần</div><div class="gtrack"><div class="gbar b3" style="left:46.36%;width:27.15%"></div></div><div class="gnote">26/10 → 06/12</div></div>
+  <div class="grow"><div class="glab">Bả · sơn</div><div class="gtrack"><div class="gbar b3" style="left:55.63%;width:27.15%"></div></div><div class="gnote">09/11 → 20/12</div></div>
+  <div class="grow"><div class="glab">Cửa · vách kính · lan can</div><div class="gtrack"><div class="gbar b4" style="left:64.9%;width:22.52%"></div></div><div class="gnote">23/11 → 27/12</div></div>
+  <div class="grow"><div class="glab">Sàn gỗ · thiết bị · đồ gỗ</div><div class="gtrack"><div class="gbar b4" style="left:69.54%;width:22.51%"></div></div><div class="gnote">30/11 → 03/01</div></div>
+  <div class="grow"><div class="glab">Thang máy — Trường Phát</div><div class="gtrack"><div class="gbar b5" style="left:0.0%;width:58.94%"></div></div><div class="gnote">17/08 → 14/11</div></div>
+  <div class="grow"><div class="glab">Tum · mái · chống nóng</div><div class="gtrack"><div class="gbar b5" style="left:4.64%;width:45.69%"></div></div><div class="gnote">24/08 → 01/11</div></div>
+  <div class="grow"><div class="glab">Sân vườn <i>(có thể hoãn)</i></div><div class="gtrack"><div class="gbar b6" style="left:13.91%;width:68.87%"></div></div><div class="gnote">07/09 → 20/12</div></div>
+  <div class="grow"><div class="glab">Chạy thử · nghiệm thu · bàn giao</div><div class="gtrack"><div class="gbar b7" style="left:92.72%;width:3.97%"></div></div><div class="gnote">04/01 → 10/01</div></div>
+  <div class="gmk"><div class="glab"></div><div class="gtrack">
+    <div class="gpin" style="left:73.51%">①</div>
+    <div class="gpin" style="left:87.42%">②</div>
+    <div class="gpin" style="left:96.69%">③</div>
+    <div class="gpin goal" style="left:100%">🎯</div>
+  </div><div class="gnote"></div></div>
+</div>
+    <div class="glegend">
+      <span><i class="b1"></i>Phá dỡ &amp; kết cấu</span>
+      <span><i class="b2"></i>Ngầm &amp; chống thấm</span>
+      <span><i class="b3"></i>Trát – ốp – sơn</span>
+      <span><i class="b4"></i>Hoàn thiện, lắp đặt</span>
+      <span><i class="b5"></i>Thang máy, mái</span>
+      <span><i class="b6"></i>Sân vườn (tùy chọn)</span>
+      <span><i class="b7"></i>Bàn giao</span>
+    </div>
+    <div class="note"><b>Thanh</b> vẽ theo lịch chạy thực tế của công trường. <b>Ba vạch ①②③</b> là ngày
+    sẽ cam kết trong hợp đồng — đặt muộn hơn lịch chạy khoảng một tuần, xem bảng ngay dưới. 🎯 là hạn
+    dọn vào 15/01/2027.</div>
+  </div>
+</div>
+
+<div class="card flag crit">
+  <div class="hd"><span class="pill crit">⛔ Ba mốc sẽ ràng buộc phạt</span>
+    <h3 style="margin-top:9px">Ba ngày này đưa vào hợp đồng thầu chính — chậm ngày nào phạt ngày đó, 0,1 %/ngày</h3></div>
+  <div class="bd" style="padding:0">
+  <table>
+    <tr><th style="width:44px"></th><th style="width:112px">Ngày cam kết</th><th>Phải xong việc gì</th><th style="width:120px">Lịch chạy về đích</th><th style="width:190px">Ghi chú</th></tr>
+    <tr><td><b>①</b></td><td><b>06/12/2026</b></td><td><b>Hết toàn bộ việc ướt</b> — trát, cán nền, ốp lát, chống thấm. Từ đây trong nhà chỉ còn việc khô.</td><td>29/11 <span style="color:var(--muted)">(dư 7 ngày)</span></td><td>Cam kết cũ là 15/12 — về sớm 9 ngày, lấy chỗ cho mùa nồm</td></tr>
+    <tr><td><b>②</b></td><td><b>27/12/2026</b></td><td><b>Sơn xong toàn nhà</b></td><td>20/12 <span style="color:var(--muted)">(dư 7 ngày)</span></td><td>Sơn xong mới được lát sàn gỗ — cách nhau 14 ngày cho khô</td></tr>
+    <tr><td><b>③</b></td><td><b>10/01/2027</b></td><td><b>Bàn giao nhà</b> — đã chạy thử, đã sửa hết lỗi vặt, đã vệ sinh, có hồ sơ hoàn công</td><td>03/01 xong khu cuối, 04–10/01 chạy thử</td><td>Sớm hơn hạn hợp đồng 15/01 đúng 5 ngày</td></tr>
+    <tr class="tot"><td>🎯</td><td><b>15/01/2027</b></td><td>DỌN VÀO Ở</td><td>—</td><td>Hạn không đổi · trước Tết 06/02/2027</td></tr>
+  </table>
+  </div>
+  <div class="bd"><div class="note">Hợp đồng thầu chính <b>chưa ký</b> (hạn ký 24/08) — ba mốc này là điều
+  khoản sẽ đưa vào khi ký. Các mốc khác trong tiến độ không bị phạt, chỉ dùng để giữ nhịp.</div></div>
+</div>
+
+<div class="two">
+  <div class="card flag warn">
+    <div class="hd"><h3>Vì sao nhanh hơn mà không phải làm ẩu</h3></div>
+    <div class="bd">
+      Nhà được chia làm <b>5 khu</b> (tầng 3 chia hai, tầng 2 chia hai, tầng 1 một khu). Mỗi tuần, một
+      nhóm thợ làm xong một khu thì chuyển sang khu kế bên, khu vừa xong đón nhóm thợ tiếp theo —
+      như các toa tàu chạy nối đuôi. Nhờ vậy <b>5 tổ thợ làm cùng lúc mà không giẫm chân nhau</b>.
+      <div class="note" style="margin-top:10px"><b>Không rút ngắn thời gian chờ khô:</b> trát xong đợi
+      28 ngày mới bả · trát xong đợi 35 ngày mới sơn · sơn xong đợi 14 ngày mới lát sàn gỗ · đổ bê tông
+      xong đợi 14 ngày mới đi điện nước ngầm. Tiến độ nhanh lên nhờ xếp việc, không phải nhờ ép khô.</div>
+      <div class="note"><b>Quân số:</b> đông nhất khoảng <b>26 thợ</b> vào đầu tháng 10 (29 nếu làm cả
+      sân vườn), phần lớn thời gian 20–25 thợ, giảm dần còn khoảng 10 người cuối tháng 12. Mỗi tổ một
+      tầng riêng nên công trường vẫn chứa được.</div>
+    </div>
+  </div>
+
+  <div class="card flag ser">
+    <div class="hd"><h3>Ba việc có thể làm trượt tiến độ</h3></div>
+    <div class="bd">
+      <ul>
+        <li><b>Ký hợp đồng thầu chính chậm nhất 24/08.</b> Báo giá về 18/08, thương lượng 19–21/08.
+        Nếu trượt: giao khoán riêng phần phá dỡ thêm một tuần, tiến độ chưa vỡ.</li>
+        <li><b>Máy hút ẩm công nghiệp — thuê khoảng 15 triệu, phải có mặt trước 24/11.</b>
+        Tháng 12–1 Hà Nội nồm 75–77 % độ ẩm; không có máy thì việc lát sàn gỗ đứng lại đúng chặng
+        cuối. Đây là việc <u>không có đường lùi</u>.</li>
+        <li><b>Thang máy phải xong và kiểm định trước 23/11</b> — đó là ngày thợ vào ốp sảnh tầng 1.
+        Kế hoạch xong 14/11, còn đệm khoảng 9 ngày.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="hd"><h3>Những ngày anh chị cần chốt — chậm hơn là ảnh hưởng tiến độ</h3>
+  <div class="note" style="margin-top:4px">Đây là <b>ngày muộn nhất còn kịp</b>, không phải ngày mong muốn.
+  Chốt sớm hơn thì càng nhẹ. <i>Năm việc ở mục 1 là việc của hôm nay; bảng này là các mốc về sau.</i></div></div>
+  <div class="bd" style="padding:0;margin-top:12px">
+  <table>
+    <tr><th style="width:110px">Chốt trước</th><th>Việc cần quyết</th><th style="width:290px">Vì sao là ngày đó</th></tr>
+    <tr><td><b>21/09</b></td><td>An toàn cho trẻ ở ban công tầng 2 — chốt cùng kiểu lan can &amp; vách kính</td><td>Trước khi đặt hàng cửa và lan can đợt 1</td></tr>
+    <tr><td><b>25/09</b></td><td>Khu giặt – phơi đặt ở đâu</td><td>Ống cấp thoát nước đi ngầm tới khu đó ngay tuần sau</td></tr>
+    <tr><td><b>30/09</b></td><td>Màu gỗ phòng ông bà</td><td>Xưởng gỗ bắt đầu mua vật tư từ tháng 10</td></tr>
+    <tr><td><b>05/10</b></td><td>Gạch lát sân · và <b>giữ hay hoãn sân vườn</b> <span class="money" style="font-size:15px">483 triệu</span></td><td>Trước khi chôn ống kỹ thuật và lát sân. Hoãn sang sau Tết <b>không đụng ngày dọn vào nhà</b> — đây là van xả nếu muốn giãn tiền</td></tr>
+    <tr><td><b>25/10</b></td><td>Ký duyệt bản vẽ đồ gỗ tầng 3 (kèm vị trí bàn thờ)</td><td>Xưởng chế tạo 4–5 tuần, lắp từ 30/11. Xưởng <u>không được sản xuất</u> khi bản vẽ chưa ký</td></tr>
+    <tr><td><b>01/11</b></td><td>Giá sách</td><td>Đặt hàng 2–3 tuần</td></tr>
+    <tr><td><b>15/11</b></td><td>Quạt sưởi trần</td><td>Lắp cùng đợt thiết bị điện</td></tr>
+    <tr><td><b>01/12</b></td><td>Bàn nâng hạ · tủ xì gà</td><td>Đặt hàng 3–4 tuần, lắp cuối tháng 12</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="hd"><h3>Mốc tiền và mốc hợp đồng trong 3 tháng tới</h3></div>
+  <div class="bd" style="padding:0;margin-top:12px">
+  <table>
+    <tr><th style="width:110px">Ngày</th><th>Mốc</th><th style="width:240px">Nếu trượt thì sao</th></tr>
+    <tr><td><b>19/08</b></td><td>Hạn Trường Phát giao khung thép giếng thang <span style="color:var(--muted)">(điều kiện: hố thang máy phía mình sẵn sàng)</span></td><td>Biên bản hai bên ký đúng ngày quyết định số ngày được miễn — giữ quyền phạt 1.935.000 đ/ngày cho ngày chậm thật sự của họ</td></tr>
+    <tr><td><b>22/08</b></td><td>Phát hành mời chào điện nước M&amp;E</td><td>Đẩy lùi trát → chống thấm → ốp lát</td></tr>
+    <tr><td><b>24/08</b></td><td>Ký hợp đồng thầu chính xây lắp</td><td>Đường lùi: giao khoán phá dỡ thêm 1 tuần</td></tr>
+    <tr><td><b>05–08/09</b></td><td>Bàn giao hố thang máy cho Trường Phát</td><td>Họ lắp khung 3 ngày rồi chờ thiết bị</td></tr>
+    <tr><td><b>12/09</b></td><td>Ký hợp đồng điện nước M&amp;E</td><td>Thợ điện nước phải vào từ 21/09</td></tr>
+    <tr><td><b>28/09</b></td><td>Thiết bị thang máy về chân công trình</td><td><span class="pill warn">💧 Trả đợt 2: 322,5 triệu</span> — đối chiếu giấy tờ xuất xứ trước khi chuyển</td></tr>
+    <tr><td><b>02/11</b></td><td>Hạn hoàn thành hợp đồng thang máy <span style="color:var(--muted)">(90 ngày kể từ 04/08)</span></td><td>Bàn giao hố pit muộn nên họ được miễn một số ngày — con số chốt tại biên bản 19/08 (dự kiến 17–20 ngày)</td></tr>
+    <tr><td><b>~14/11</b></td><td>Thang máy lắp xong + kiểm định</td><td>Phải xong trước 23/11 là ngày ốp sảnh tầng 1 — còn đệm khoảng 9 ngày</td></tr>
+  </table>
+  </div>
+</div>
+
+<div class="note">📌 Kế hoạch tiến độ này lập <b>tối 16/08/2026</b>, đang là <b>bản trình</b>. Bản chi tiết
+theo tuần (21 tuần × 5 khu, khối lượng và nhân lực từng nhóm việc) nằm ở hồ sơ quản lý dự án, không đưa
+vào trang này.</div>
 
 <h2><span class="n">5</span>Bốn điều anh nên biết trước</h2>
 <div class="two">
@@ -298,9 +468,10 @@ font-size:12.5px;color:var(--muted);line-height:1.6}
   <b>Bảng này là bản trình, chưa phải bản đã duyệt.</b> Bốn mục số liệu còn chờ quyết định chính thức:
   bảng chi phí chi tiết, tổng mức đầu tư, hồ sơ mời chào xây lắp, và kế hoạch nghiệm thu.
   <br>
-  Nguồn: hồ sơ dự án BT.A03 — bảng tổng mức đầu tư chi tiết <b>bản v3 ngày 17/08</b> (từng dòng cộng kiểm bằng máy), sổ theo dõi và sổ thư từ cập nhật 17/08.
+  Nguồn tiến độ (mục 4): kế hoạch triển khai <b>TAKT-D+</b> lập 16/08/2026 — bảng chi tiết 21 tuần × 5 khu kèm khối lượng và nhân lực.<br>
+  Nguồn tiền: hồ sơ dự án BT.A03 — bảng tổng mức đầu tư chi tiết <b>bản v3 ngày 17/08</b> (từng dòng cộng kiểm bằng máy), sổ theo dõi và sổ thư từ cập nhật 17/08.
   <br><br>
-  Lập bởi <b>Nguyễn Anh Dũng</b> — quản lý dự án · trợ lý kỹ thuật Tano · <b>16/08/2026</b>
+  Lập bởi <b>Nguyễn Anh Dũng</b> — quản lý dự án · trợ lý kỹ thuật Tano · cập nhật <b>18/08/2026</b>
 </footer>
 
 </div>
@@ -310,4 +481,4 @@ font-size:12.5px;color:var(--muted);line-height:1.6}
   document.getElementById('dem').textContent = d + ' ngày';
 })();
 </script>
-<div id="dauthoigian" onclick="this.style.display='none'" style="position:fixed;left:10px;bottom:10px;z-index:99999;background:rgba(11,11,11,.82);color:#fff;font:500 11px/1.35 system-ui,sans-serif;padding:6px 10px;border-radius:14px;cursor:pointer;max-width:78vw;box-shadow:0 2px 10px rgba(0,0,0,.28)">Bản cập nhật: Thứ Ba 18/08/2026 lúc 06:47 &nbsp;·&nbsp; bấm để ẩn</div></body></html>
+<div id="dauthoigian" onclick="this.style.display='none'" style="position:fixed;left:10px;bottom:10px;z-index:99999;background:rgba(11,11,11,.82);color:#fff;font:500 11px/1.35 system-ui,sans-serif;padding:6px 10px;border-radius:14px;cursor:pointer;max-width:78vw;box-shadow:0 2px 10px rgba(0,0,0,.28)">Bản cập nhật: Thứ Tư 19/08/2026 lúc 06:30 &nbsp;·&nbsp; bấm để ẩn</div></body></html>
